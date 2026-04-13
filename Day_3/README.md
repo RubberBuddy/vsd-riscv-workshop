@@ -1,0 +1,7 @@
+![Comb_ckt](image.png)
+![Counter](image-1.png)
+![seq_calc](image-2.png)
+![Pipeline](image-3.png)
+![Cycle_Calculator](image-4.png)
+![validity_cycle_calc](image-5.png)
+![calc_single_value_mem](image-6.png)
