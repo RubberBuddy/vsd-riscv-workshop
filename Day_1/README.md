@@ -14,6 +14,7 @@ To validate the GNU toolchain and Spike Instruction Set Simulator (ISS), a stand
 ```bash
 gcc sum1ton.c
 ./a.out
+```
 
 ![gcc out](image.png)
 
@@ -21,6 +22,7 @@ gcc sum1ton.c
 ```bash
 riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
 spike pk sum1ton.o
+```
 
 ![RISCV OUT](image2.png)
 
