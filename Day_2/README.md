@@ -1,15 +1,15 @@
 # Day 2: Application Binary Interface (ABI) and Basic Verification Flow
 
-## 📌 Overview
+## Overview
 Day 2 bridges the gap between software and hardware by introducing the Application Binary Interface (ABI). The lab demonstrates how C programs communicate with underlying hardware registers. The day culminates in executing a full RTL verification flow, where a C program is converted into a hex file, loaded into the memory of a Verilog-based RISC-V CPU core (`picorv32`), and executed.
 
-## 🎯 Key Objectives
+## Key Objectives
 * Understand the RISC-V RV64I Base Integer Instruction Set and register allocation.
 * Learn how the Application Binary Interface (ABI) facilitates function calls between C and Assembly.
 * Execute a C program on a RISC-V CPU core using a Verilog testbench.
 * Understand the script-based automation of converting source code to bitstreams (`.hex`) and loading them into memory.
 
-## 🛠️ Lab 1: C to Custom Assembly via ABI
+## Lab 1: C to Custom Assembly via ABI
 In this lab, a C program calculates the sum of numbers from 1 to 9, but the core execution is offloaded to a custom assembly file called through the ABI.
 
 **1. Compilation with GCC Cross-Compiler:**
@@ -29,7 +29,7 @@ riscv64-unknown-elf-objdump -d custom1_to9.o | less
 spike pk custom1_to9.o
 `
 
-### 📸 Lab 1 Snapshots
+### Lab 1 Snapshots
 *(Insert screenshot of your objdump output showing your assembly routine here)*
 ![Objdump Output](image.png)
 
@@ -37,7 +37,7 @@ spike pk custom1_to9.o
 ![Spike Execution](image-1.png)
 
 
-## 🏗️ Lab 2: Running C Program on RISC-V CPU Core
+## Lab 2: Running C Program on RISC-V CPU Core
 This lab demonstrates the flow of running a C program on a pre-written RISC-V CPU core (`picorv32`) using a Verilog testbench. The code is converted to a hex format, loaded into memory, and processed by the CPU.
 
 **1. Clone the Repository and Navigate to Labs:**
@@ -69,13 +69,13 @@ After running the script, we can view the generated hex file to see exactly how 
 vim firmware.hex
 `
 
-### 📸 Lab 2 Snapshots
+### Lab 2 Snapshots
 *(Insert screenshot of your terminal showing the successful output of the `./rv32im.sh` script here)*
 ![Simulation Script Output](image-2.png)
 
 *(Insert screenshot showing the inside of the firmware.hex file via vim here)*
 ![Firmware Hex](image-3.png)
 
-## 🧠 Key Learnings
+## Key Learnings
 * **ABI Utilization:** Discovered how arguments are passed via standard registers (e.g., `a0`, `a1`) according to the RISC-V ABI.
 * **Hex File Generation:** Understood the automated flow (`rv32im.sh`) of taking high-level C code, compiling it down to machine-readable hex bitstreams, and injecting it into an RTL testbench using `$readmemh`.
