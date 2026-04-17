@@ -34,7 +34,7 @@ Branching introduces control hazards: by the time the CPU determines a branch mu
 * **Branch Squashing & Complete ALU/Decode:** Integrating full pipeline control flow.
   * *Architectural Concept:* When a branch condition evaluates to true, the hardware must invalidate the "phantom" instructions trapped in the shadow of the branch. This is achieved by forcing their `$valid` bits to zero, effectively turning them into harmless pipeline bubbles. Simultaneously, the complete decode and ALU blocks are finalized to support the full subset of base integer instructions required for this core.
 
-  ![Branches](image-images/image_copy2.png)
+  ![Branches](images/image_copy2.png)
   ![complete_instruction_decode](images/imagecopy3.png)
   ![complete_ALU](images/imagecopy4.png)
 
