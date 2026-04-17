@@ -1,6 +1,6 @@
 # Day 3: Digital Logic Design with TL-Verilog and Makerchip
 
-Welcome to Day 3! This directory contains the foundational digital logic circuits I designed using **TL-Verilog** in the **Makerchip IDE**. 
+This directory contains the foundational digital logic circuits I designed using **TL-Verilog** in the **Makerchip IDE**. 
 
 The labs here document a massive evolution in hardware design: we start with basic, "amnesiac" logic gates and progressively build our way up to a fully pipelined, state-aware, memory-capable architecture. 
 
