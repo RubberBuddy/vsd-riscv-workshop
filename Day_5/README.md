@@ -1,4 +1,4 @@
-![3-cycle-valid](image.png)
+![3-cycle-valid](images/image.png)
 ![cycle_riscv](image2.png)
 ![cycle_riscv_2](image-1.png)
 ![reg_file_bypass](image_copy.png)
