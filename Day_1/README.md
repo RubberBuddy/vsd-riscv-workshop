@@ -39,4 +39,4 @@ To test the boundaries of the base architecture, I compiled a floating-point Sig
 
 Result: This drastically increased the binary footprint and instruction count.
 
-![profilin_block](image.png)
+![profilin_block](images/image.png)
