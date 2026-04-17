@@ -14,15 +14,17 @@ To validate the GNU toolchain and Spike Instruction Set Simulator (ISS), a stand
 ```bash
 gcc sum1ton.c
 ./a.out
+```
 
-![gcc out](image.png)
+![gcc out](images/image4.png)
 
 **RISCV Compilation:**
 ```bash
 riscv64-unknown-elf-gcc -O1 -mabi=lp64 -march=rv64i -o sum1ton.o sum1ton.c
 spike pk sum1ton.o
+```
 
-![RISCV OUT](image2.png)
+![RISCV OUT](images/image2.png)
 
 ### Custom Work
 To profile the execution efficiency of the base RISC-V ISA, I developed custom C workloads to test both the strengths and weaknesses of an integer-only processor. Hardware performance counters (rdcycle and rdinstret) were utilized via inline assembly to extract exact cycle and instruction counts.
@@ -30,7 +32,7 @@ To profile the execution efficiency of the base RISC-V ISA, I developed custom C
 1. Strength Profile: Integer Moving Average Filter
 I compiled a 1D moving average filter. The RV32I core handled the array indexing and integer ALU operations with minimal instruction overhead.
 
-![Filter Output](image3.png)
+![Filter Output](images/image3.png)
 
 2. Weakness Profile: Soft-Float Overhead (Sigmoid Function)
 To test the boundaries of the base architecture, I compiled a floating-point Sigmoid activation function. The GNU compiler was forced to inject soft-float emulation libraries.
