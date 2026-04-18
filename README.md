@@ -55,3 +55,15 @@ For a comprehensive architectural breakdown, visual logic schematics, and specif
 * [Day 4: Single-Cycle RISC-V Core](./Day_4/README.md)
 * [Day 5: Pipelined Microarchitecture](./Day_5/README.md)
 * [PLUT Hardware Accelerator](./Programmable_LUT/README.md)
+
+---
+
+## Open to Opportunities
+
+I am an Electrical and Electronics Engineering student (Expected Graduation: 2027) actively seeking **internship opportunities** in the semiconductor industry. 
+
+My core focus is on **Digital Logic Design, RTL Engineering, and Hardware Acceleration for Edge AI**. Building this custom RISC-V microarchitecture has solidified my passion for silicon design, and I am eager to bring this hands-on RTL experience to teams engineering next-generation processors and hardware accelerators.
+
+**Let's Connect:**
+* **Email:** [ritiksarna@gmail.com]
+* **Resume:** [my Resume](./Ritik_Sarna_Resume.pdf)
