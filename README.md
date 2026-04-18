@@ -17,18 +17,26 @@ The foundational phase establishing the RISC-V software ecosystem. This stage br
 An analysis of the strict conventions governing the hardware-software interface.
 * **Core Focus:** Mastering the RISC-V ABI conventions. This phase dictates how the 32 architectural registers are dynamically allocated for function calls, parameter passing, return value extraction, and stack pointer management during hierarchical subroutines.
 
+<img width="795" height="605" alt="image" src="https://github.com/user-attachments/assets/6cec021a-f0f3-4768-a2a2-db4fc32afc85" />
+
 ### Day 3: Digital Logic Synthesis with TL-Verilog
 The transition from behavioral software analysis to structural hardware description.
 * **Core Focus:** Architecting combinational and sequential logic circuits. The implementation progressed from stateless datapaths into multi-stage pipelined structures, introducing critical concepts such as execution validity signals and localized temporal storage.
+
+<img width="685" height="546" alt="image" src="https://github.com/user-attachments/assets/8c26038c-b772-4d68-b1c7-554332cd8163" />
 
 ### Day 4: Base RISC-V Datapath Construction
 The structural realization of a single-cycle processor architecture.
 * **Core Focus:** Engineering the foundational hardware modules required for instruction execution. This included the Program Counter logic (Fetch), ISA format slicing (Decode), localized memory access (Register File), operational routing (ALU), and combinational branch evaluation.
 
+<img width="888" height="322" alt="image" src="https://github.com/user-attachments/assets/242708ea-2575-4e4b-86b4-b109573d1121" />
+
 ### Day 5: Complete Pipelined CPU Microarchitecture
 The core architectural transformation phase, restructuring the single-cycle datapath into a high-throughput, 5-stage pipelined processor.
 * **Core Focus:** Distributing execution logic across temporal clock boundaries and engineering the complex control structures required to handle architectural hazards.
 * **Hazard Management:** Synthesized a Register File combinational bypass network for zero-cycle stalls (forwarding), dynamic load-use hazard detection with PC-rewinds, and deterministic branch squashing. The architectural integrity was proven by natively executing a multi-loop assembly program.
+
+<img width="1024" height="389" alt="image" src="https://github.com/user-attachments/assets/47183a76-d34e-41bc-aedd-3594af3ebd61" />
 
 ### Programmable Look-Up Table (PLUT) Accelerator
 The final phase closes the architectural loop, directly addressing the 37,000-cycle software emulation bottleneck identified on Day 1.
@@ -46,4 +54,4 @@ For a comprehensive architectural breakdown, visual logic schematics, and specif
 * [Day 3: Digital Logic & TL-Verilog](./Day_3/README.md)
 * [Day 4: Single-Cycle RISC-V Core](./Day_4/README.md)
 * [Day 5: Pipelined Microarchitecture](./Day_5/README.md)
-* [PLUT Hardware Accelerator](./Day_6/README.md)
+* [PLUT Hardware Accelerator](./Programmable_LUT/README.md)
