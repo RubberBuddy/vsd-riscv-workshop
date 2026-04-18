@@ -66,4 +66,4 @@ My core focus is on **Digital Logic Design, RTL Engineering, and Hardware Accele
 
 **Let's Connect:**
 * **Email:** [ritiksarna@gmail.com]
-* **Resume:** [my Resume](./Ritik_Sarna_Resume.pdf)
+* **Resume:** [my Resume](./digital_Resume.pdf)
