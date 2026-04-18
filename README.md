@@ -1,43 +1,49 @@
-# VSD RISC-V Microarchitecture Workshop
+# VSD RISC-V Microarchitecture & AI Acceleration
 
-This repository contains the complete progression of a 5-day hardware design workshop focused on architecting a 5-stage pipelined RISC-V processor. The project transitions from high-level software compilation down to structural silicon design using TL-Verilog and the Makerchip IDE.
+This repository documents a comprehensive architectural progression from high-level software abstraction down to structural RTL (Register-Transfer Level) silicon design. The project culminates in the synthesis of a custom, 5-stage pipelined RISC-V processor—augmented with a dedicated Edge-AI hardware coprocessor—architected using TL-Verilog within the Makerchip IDE.
 
-The documentation is divided into daily milestones, tracking the evolution of the CPU from basic logic gates to a fully functional, hazard-aware microarchitecture.
+The documentation is segmented into progressive milestones, tracking the evolution of the CPU from foundational logic gates to a fully functional, hazard-aware microarchitecture, ultimately closing the loop with a custom ISA extension to resolve software emulation bottlenecks.
 
 ---
 
-## Workshop Progression
+## Architectural Progression
 
-### Day 1: Introduction to RISC-V ISA and Compilation
-The foundational phase focusing on the RISC-V software ecosystem. This stage bridges the gap between high-level programming languages and machine-level execution.
-* **Core Focus:** Understanding the RISC-V Instruction Set Architecture (ISA) and the transition from C code to binary.
-* **Extended Implementation:** A deep dive into the RISC-V GNU Toolchain. This involved writing custom C programs, compiling them down to bare-metal assembly using `riscv64-unknown-elf-gcc`, and utilizing `objdump` to analyze the exact instruction formatting. The generated binaries were then executed and debugged using the Spike ISA simulator to verify standard execution flows before any hardware was built.
+### Day 1: RISC-V ISA, Compilation, and The Software Bottleneck
+The foundational phase establishing the RISC-V software ecosystem. This stage bridges the gap between high-level C algorithms and machine-level binary execution.
+* **Core Focus:** Understanding the RISC-V Instruction Set Architecture (ISA) and the GNU Toolchain.
+* **The Profiling Benchmark:** Beyond standard compilation, this phase established a critical baseline performance metric. By profiling a neural network Sigmoid activation function via the Spike ISA simulator, a severe structural weakness was exposed: **"Soft-Float Overhead."** The base integer architecture required over 37,000 clock cycles to emulate transcendental math in software, defining the bottleneck that the final hardware must resolve.
 
-### Day 2: Application Binary Interface (ABI)
-An exploration of the rules that govern how software interacts with the hardware architecture.
-* **Core Focus:** Understanding the RISC-V ABI conventions. This included analyzing how the 32 architectural registers are allocated for function calls, argument passing, return values, and stack pointer management during nested subroutines.
+### Day 2: Application Binary Interface (ABI) Integration
+An analysis of the strict conventions governing the hardware-software interface.
+* **Core Focus:** Mastering the RISC-V ABI conventions. This phase dictates how the 32 architectural registers are dynamically allocated for function calls, parameter passing, return value extraction, and stack pointer management during hierarchical subroutines.
 
-### Day 3: Digital Logic Design with TL-Verilog
-The transition from software concepts to hardware description. This phase establishes the fundamental building blocks of digital logic within the Makerchip IDE.
-* **Core Focus:** Designing combinational and sequential logic circuits. The implementation progressed from a basic stateless calculator to a multi-stage pipelined datapath incorporating execution validity and localized memory retention.
+### Day 3: Digital Logic Synthesis with TL-Verilog
+The transition from behavioral software analysis to structural hardware description.
+* **Core Focus:** Architecting combinational and sequential logic circuits. The implementation progressed from stateless datapaths into multi-stage pipelined structures, introducing critical concepts such as execution validity signals and localized temporal storage.
 
 ### Day 4: Base RISC-V Datapath Construction
-The construction of a single-cycle processor architecture capable of interpreting standard RISC-V machine code.
-* **Core Focus:** Building the hardware required for Instruction Fetch, Instruction Decode, Register File read/write access, Arithmetic Logic Unit (ALU) execution, and conditional branch evaluation.
+The structural realization of a single-cycle processor architecture.
+* **Core Focus:** Engineering the foundational hardware modules required for instruction execution. This included the Program Counter logic (Fetch), ISA format slicing (Decode), localized memory access (Register File), operational routing (ALU), and combinational branch evaluation.
 
 ### Day 5: Complete Pipelined CPU Microarchitecture
-The final architectural phase, transforming the single-cycle datapath into a high-performance, 5-stage pipelined processor. 
-* **Core Focus:** Distributing logic across physical clock boundaries and designing the complex control structures required to handle Read-After-Write (RAW) data hazards, control hazards, and memory access latency.
-* **Extended Implementation:** Comprehensive hazard resolution and full testbench verification. This involved engineering a Register File bypass network (forwarding) for zero-cycle stalls, load-use hazard detection with Program Counter rewinds, and branch squashing. The architectural integrity was definitively proven by successfully executing a multi-loop assembly program natively on the custom TL-Verilog core, verified through rigorous waveform analysis.
+The core architectural transformation phase, restructuring the single-cycle datapath into a high-throughput, 5-stage pipelined processor.
+* **Core Focus:** Distributing execution logic across temporal clock boundaries and engineering the complex control structures required to handle architectural hazards.
+* **Hazard Management:** Synthesized a Register File combinational bypass network for zero-cycle stalls (forwarding), dynamic load-use hazard detection with PC-rewinds, and deterministic branch squashing. The architectural integrity was proven by natively executing a multi-loop assembly program.
+
+### Programmable Look-Up Table (PLUT) Accelerator
+The final phase closes the architectural loop, directly addressing the 37,000-cycle software emulation bottleneck identified on Day 1.
+* **Core Focus:** Expanding the RISC-V ISA to integrate a custom Edge-AI hardware coprocessor designed to natively accelerate non-linear activation functions (Sigmoid, Tanh, Swish).
+* **Hardware Acceleration:** Engineered a stateful 16-entry SRAM Programmable Look-Up Table (PLUT) paired with a single-cycle, fixed-point linear interpolator. By shifting transcendental math from software emulation down to dedicated structural silicon, the latency for complex curves was slashed from tens of thousands of cycles down to a highly optimized **1-cycle hardware operation**.
 
 ---
 
 ## Detailed Documentation
 
-For a comprehensive architectural breakdown, visual logic diagrams, and specific implementation details for each phase, please refer to the dedicated daily documentation below:
+For a comprehensive architectural breakdown, visual logic schematics, and specific implementation details for each phase, please refer to the dedicated directory documentation below:
 
-* [Day 1 Documentation](./Day_1/README.md)
-* [Day 2 Documentation](./Day_2/README.md)
-* [Day 3 Documentation](./Day_3/README.md)
-* [Day 4 Documentation](./Day_4/README.md)
-* [Day 5 Documentation](./Day_5/README.md)
+* [Day 1: Software Toolchain & Baseline Profiling](./Day_1/README.md)
+* [Day 2: ABI & Calling Conventions](./Day_2/README.md)
+* [Day 3: Digital Logic & TL-Verilog](./Day_3/README.md)
+* [Day 4: Single-Cycle RISC-V Core](./Day_4/README.md)
+* [Day 5: Pipelined Microarchitecture](./Day_5/README.md)
+* [PLUT Hardware Accelerator](./Day_6/README.md)
